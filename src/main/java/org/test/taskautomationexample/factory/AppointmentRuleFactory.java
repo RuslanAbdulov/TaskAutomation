@@ -1,28 +1,39 @@
 package org.test.taskautomationexample.factory;
 
-import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.event.OrderEvent;
-import org.test.taskautomationexample.rule.DueDate;
-import org.test.taskautomationexample.rule.Executor;
-import org.test.taskautomationexample.rule.OrderRule;
-import org.test.taskautomationexample.rule.Rule;
+import org.test.taskautomationexample.model.AppointmentEvent;
+import org.test.taskautomationexample.model.Event;
+import org.test.taskautomationexample.rule.AppointmentTaskRule;
+import org.test.taskautomationexample.rule.DueDateProvider;
+import org.test.taskautomationexample.rule.ExecutorProvider;
+import org.test.taskautomationexample.rule.OffsetBasedDueDateProvider;
+import org.test.taskautomationexample.rule.RandomExecutor;
+import org.test.taskautomationexample.rule.TaskAutomationRule;
+
+import java.util.Map;
 
 
 @Component
-public class OrderRuleFactory implements RuleFactory<OrderEvent> {
+@RequiredArgsConstructor
+public class AppointmentRuleFactory implements RuleFactory<AppointmentEvent> {
+
+    private final RandomExecutor<AppointmentEvent> executor;
 
     @Override
-    public Rule<OrderEvent> createRule(Executor<OrderEvent> executor, DueDate<OrderEvent> dueDate) {
-        return createOrderRule(executor, dueDate);
+    public TaskAutomationRule<AppointmentEvent> createRule(Map<String, String> settings) {
+        return createAppointmentRule(executor, createDueDate(settings.get("dueDateOffset")));
     }
 
     @Lookup
-    protected OrderRule createOrderRule(
-            @NonNull Executor<OrderEvent> executor,
-            @NonNull DueDate<OrderEvent> dueDate) {
-        return new OrderRule(executor, dueDate);
+    private OffsetBasedDueDateProvider createDueDate(String offset) {
+        return new OffsetBasedDueDateProvider(offset);
+    }
+
+    @Lookup
+    private AppointmentTaskRule createAppointmentRule(ExecutorProvider<AppointmentEvent> executor, DueDateProvider<Event> dueDate) {
+        return new AppointmentTaskRule(executor, dueDate);
     }
 
 }

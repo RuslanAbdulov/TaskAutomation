@@ -12,11 +12,11 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 
 @Component
 @Scope(SCOPE_PROTOTYPE)
-public class OffsetBasedDueDate implements DueDate<Event> {
+public class OffsetBasedDueDateProvider implements DueDateProvider<Event> {
 
     private final Duration offset;
 
-    public OffsetBasedDueDate(String offset) {
+    public OffsetBasedDueDateProvider(String offset) {
         this.offset = (offset != null) ? Duration.parse(offset) : Duration.ofSeconds(0);
     }
 

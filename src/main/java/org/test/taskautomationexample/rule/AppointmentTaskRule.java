@@ -11,10 +11,10 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @Component
 @Scope(SCOPE_PROTOTYPE)
 @RequiredArgsConstructor
-public class AppointmentRule implements Rule<AppointmentEvent> {
+public class AppointmentTaskRule implements TaskAutomationRule<AppointmentEvent> {
 
-    private final Executor<AppointmentEvent> executorRule;
-    private final DueDate<? super AppointmentEvent> dueDateRule;
+    private final ExecutorProvider<AppointmentEvent> executorRule;
+    private final DueDateProvider<? super AppointmentEvent> dueDateRule;
 
     @Override
     public Task process(AppointmentEvent event) {
