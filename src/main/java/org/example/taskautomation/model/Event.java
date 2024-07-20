@@ -7,6 +7,8 @@ import java.time.Instant;
 
 @Data
 @SuperBuilder
-public class Event {
+public abstract class Event {
+
     private Instant timestamp;
+
 }

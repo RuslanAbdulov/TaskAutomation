@@ -10,7 +10,7 @@ import org.example.taskautomation.rule.AppointmentTaskRule;
 import org.example.taskautomation.rule.DueDateProvider;
 import org.example.taskautomation.rule.ExecutorProvider;
 import org.example.taskautomation.rule.OffsetBasedDueDateProvider;
-import org.example.taskautomation.rule.RandomExecutor;
+import org.example.taskautomation.rule.RandomExecutorProvider;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AppointmentRuleFactory implements RuleFactory<AppointmentEvent> {
 
-    private final RandomExecutor<AppointmentEvent> executor;
+    private final RandomExecutorProvider<AppointmentEvent> executor;
 
     @Override
     public TaskAutomationRule<AppointmentEvent> createRule(Map<String, String> settings) {

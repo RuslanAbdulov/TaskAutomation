@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-public class RandomExecutor<E extends Event> implements ExecutorProvider<E> {
+public class RandomExecutorProvider<E extends Event> implements ExecutorProvider<E> {
 
     private final List<String> executors = List.of("Random Executor 1", "Random Executor 2", "Random Executor 3");
     private final Random random = new Random();

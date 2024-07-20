@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class OrderAssistantExecutor implements ExecutorProvider<OrderEvent> {
+public class OrderAssistantExecutorProvider implements ExecutorProvider<OrderEvent> {
 
     @Override
     public String process(OrderEvent event) {
