@@ -13,7 +13,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @RequiredArgsConstructor
 public class OrderTaskRule implements TaskAutomationRule<OrderEvent> {
 
-    private final ExecutorProvider<OrderEvent> executorRule;
+    private final ExecutorProvider<? super OrderEvent> executorRule;
     private final DueDateProvider<? super OrderEvent> dueDateRule;
 
     @Override

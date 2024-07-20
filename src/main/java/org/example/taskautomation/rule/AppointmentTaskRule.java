@@ -13,7 +13,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @RequiredArgsConstructor
 public class AppointmentTaskRule implements TaskAutomationRule<AppointmentEvent> {
 
-    private final ExecutorProvider<AppointmentEvent> executorRule;
+    private final ExecutorProvider<? super AppointmentEvent> executorRule;
     private final DueDateProvider<? super AppointmentEvent> dueDateRule;
 
     @Override
