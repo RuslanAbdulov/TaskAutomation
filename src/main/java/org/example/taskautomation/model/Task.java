@@ -1,4 +1,4 @@
-package org.test.taskautomationexample.model;
+package org.example.taskautomation.model;
 
 import lombok.Builder;
 import lombok.Data;

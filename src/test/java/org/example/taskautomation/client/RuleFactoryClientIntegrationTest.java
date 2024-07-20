@@ -1,10 +1,10 @@
-package org.test.taskautomationexample.client;
+package org.example.taskautomation.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.test.taskautomationexample.model.AppointmentEvent;
-import org.test.taskautomationexample.model.OrderEvent;
+import org.example.taskautomation.model.AppointmentEvent;
+import org.example.taskautomation.model.OrderEvent;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;

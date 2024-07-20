@@ -1,8 +1,8 @@
-package org.test.taskautomationexample.rule;
+package org.example.taskautomation.rule;
 
+import org.example.taskautomation.model.Event;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.model.Event;
 
 import java.time.Duration;
 import java.time.Instant;

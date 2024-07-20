@@ -1,6 +1,6 @@
-package org.test.taskautomationexample.rule;
+package org.example.taskautomation.rule;
 
-import org.test.taskautomationexample.model.Event;
+import org.example.taskautomation.model.Event;
 
 import java.time.Instant;
 

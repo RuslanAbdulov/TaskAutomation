@@ -1,10 +1,10 @@
-package org.test.taskautomationexample.rule;
+package org.example.taskautomation.rule;
 
 import lombok.RequiredArgsConstructor;
+import org.example.taskautomation.model.Task;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.model.AppointmentEvent;
-import org.test.taskautomationexample.model.Task;
+import org.example.taskautomation.model.AppointmentEvent;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 

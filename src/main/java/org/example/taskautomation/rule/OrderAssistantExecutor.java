@@ -1,7 +1,7 @@
-package org.test.taskautomationexample.rule;
+package org.example.taskautomation.rule;
 
+import org.example.taskautomation.model.OrderEvent;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.model.OrderEvent;
 
 
 @Component

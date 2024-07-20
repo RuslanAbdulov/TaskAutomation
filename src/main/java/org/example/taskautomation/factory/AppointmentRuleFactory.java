@@ -1,16 +1,16 @@
-package org.test.taskautomationexample.factory;
+package org.example.taskautomation.factory;
 
 import lombok.RequiredArgsConstructor;
+import org.example.taskautomation.rule.TaskAutomationRule;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.model.AppointmentEvent;
-import org.test.taskautomationexample.model.Event;
-import org.test.taskautomationexample.rule.AppointmentTaskRule;
-import org.test.taskautomationexample.rule.DueDateProvider;
-import org.test.taskautomationexample.rule.ExecutorProvider;
-import org.test.taskautomationexample.rule.OffsetBasedDueDateProvider;
-import org.test.taskautomationexample.rule.RandomExecutor;
-import org.test.taskautomationexample.rule.TaskAutomationRule;
+import org.example.taskautomation.model.AppointmentEvent;
+import org.example.taskautomation.model.Event;
+import org.example.taskautomation.rule.AppointmentTaskRule;
+import org.example.taskautomation.rule.DueDateProvider;
+import org.example.taskautomation.rule.ExecutorProvider;
+import org.example.taskautomation.rule.OffsetBasedDueDateProvider;
+import org.example.taskautomation.rule.RandomExecutor;
 
 import java.util.Map;
 

@@ -1,7 +1,7 @@
-package org.test.taskautomationexample.rule;
+package org.example.taskautomation.rule;
 
+import org.example.taskautomation.model.Event;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.model.Event;
 
 import java.util.List;
 import java.util.Random;

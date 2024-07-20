@@ -1,15 +1,15 @@
-package org.test.taskautomationexample.client;
+package org.example.taskautomation.client;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.example.taskautomation.factory.AppointmentRuleFactory;
+import org.example.taskautomation.factory.OrderRuleFactory;
+import org.example.taskautomation.model.Event;
+import org.example.taskautomation.model.OrderEvent;
+import org.example.taskautomation.model.Task;
+import org.example.taskautomation.rule.TaskAutomationRule;
 import org.springframework.stereotype.Component;
-import org.test.taskautomationexample.factory.AppointmentRuleFactory;
-import org.test.taskautomationexample.factory.OrderRuleFactory;
-import org.test.taskautomationexample.model.AppointmentEvent;
-import org.test.taskautomationexample.model.Event;
-import org.test.taskautomationexample.model.OrderEvent;
-import org.test.taskautomationexample.model.Task;
-import org.test.taskautomationexample.rule.TaskAutomationRule;
+import org.example.taskautomation.model.AppointmentEvent;
 
 import java.util.Map;
 

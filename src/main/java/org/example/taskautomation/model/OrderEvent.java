@@ -1,4 +1,4 @@
-package org.test.taskautomationexample.model;
+package org.example.taskautomation.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,8 +8,9 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
-public class AppointmentEvent extends Event {
+public class OrderEvent extends Event {
 
-    private String room;
+    private String order;
+    private String assistant;
 
 }
