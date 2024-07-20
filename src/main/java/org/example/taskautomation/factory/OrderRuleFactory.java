@@ -22,11 +22,11 @@ public class OrderRuleFactory implements RuleFactory<OrderEvent> {
 
     @Override
     public TaskAutomationRule<OrderEvent> createRule(Map<String, String> settings) {
-        return createOrderRule(executor, createDueDate(settings.get("dueDateOffset")));
+        return createOrderRule(executor, createDueDateProvider(settings.get("dueDateOffset")));
     }
 
     @Lookup
-    private OffsetBasedDueDateProvider createDueDate(String offset) {
+    private OffsetBasedDueDateProvider createDueDateProvider(String offset) {
         return new OffsetBasedDueDateProvider(offset);
     }
 

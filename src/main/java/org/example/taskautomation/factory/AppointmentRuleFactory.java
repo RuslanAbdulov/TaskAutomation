@@ -19,21 +19,22 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AppointmentRuleFactory implements RuleFactory<AppointmentEvent> {
 
-    private final RandomExecutorProvider<AppointmentEvent> executor;
+    private final RandomExecutorProvider<AppointmentEvent> executorProvider;
 
     @Override
     public TaskAutomationRule<AppointmentEvent> createRule(Map<String, String> settings) {
-        return createAppointmentRule(executor, createDueDate(settings.get("dueDateOffset")));
+        return createAppointmentRule(executorProvider, createDueDateProvider(settings.get("dueDateOffset")));
     }
 
     @Lookup
-    private OffsetBasedDueDateProvider createDueDate(String offset) {
+    private OffsetBasedDueDateProvider createDueDateProvider(String offset) {
         return new OffsetBasedDueDateProvider(offset);
     }
 
     @Lookup
-    private AppointmentTaskRule createAppointmentRule(ExecutorProvider<AppointmentEvent> executor, DueDateProvider<Event> dueDate) {
-        return new AppointmentTaskRule(executor, dueDate);
+    private AppointmentTaskRule createAppointmentRule(
+            ExecutorProvider<AppointmentEvent> executorProvider, DueDateProvider<Event> dueDateProvider) {
+        return new AppointmentTaskRule(executorProvider, dueDateProvider);
     }
 
 }

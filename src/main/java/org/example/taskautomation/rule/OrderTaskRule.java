@@ -13,13 +13,13 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @RequiredArgsConstructor
 public class OrderTaskRule implements TaskAutomationRule<OrderEvent> {
 
-    private final ExecutorProvider<? super OrderEvent> executorRule;
-    private final DueDateProvider<? super OrderEvent> dueDateRule;
+    private final ExecutorProvider<? super OrderEvent> executorProvider;
+    private final DueDateProvider<? super OrderEvent> dueDateProvider;
 
     @Override
     public Task process(OrderEvent event) {
-        var executor = executorRule.process(event);
-        var dueDate = dueDateRule.process(event);
+        var executor = executorProvider.process(event);
+        var dueDate = dueDateProvider.process(event);
         return Task.builder()
                 .description("Check fulfillment of order %s.".formatted(event.getOrder()))
                 .executor(executor)

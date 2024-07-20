@@ -13,13 +13,13 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @RequiredArgsConstructor
 public class AppointmentTaskRule implements TaskAutomationRule<AppointmentEvent> {
 
-    private final ExecutorProvider<? super AppointmentEvent> executorRule;
-    private final DueDateProvider<? super AppointmentEvent> dueDateRule;
+    private final ExecutorProvider<? super AppointmentEvent> executorProvider;
+    private final DueDateProvider<? super AppointmentEvent> dueDateProvider;
 
     @Override
     public Task process(AppointmentEvent event) {
-        var executor = executorRule.process(event);
-        var dueDate = dueDateRule.process(event);
+        var executor = executorProvider.process(event);
+        var dueDate = dueDateProvider.process(event);
         return Task.builder()
                 .description("Prepare room %s.".formatted(event.getRoom()))
                 .executor(executor)
